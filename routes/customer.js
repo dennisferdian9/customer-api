@@ -42,7 +42,7 @@ router.get('/summary', async (req, res) => {
       return res.json({ field: groupBy, summary });
     }
 
-    const fieldsToSummarize = ['gender', 'Name of Location', 'Brand Device', 'Digital Interest']; // field name 
+    const fieldsToSummarize = ['gender', 'locationType', 'brandDevice', 'digitalInterest'];
 
     const summaries = {};
     for (const field of fieldsToSummarize) {
@@ -60,7 +60,7 @@ router.get('/summary', async (req, res) => {
     res.json(summaries);
   } catch (err) {
     console.error('Summary error:', err);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error' }) ;
   }
 });
 
